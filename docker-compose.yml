@@ -1,0 +1,27 @@
+services:
+  back:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: "cinema"
+    image: "cinema-image"
+    expose:
+      - 8000
+    env_file:
+      - .env.dev
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    
+  db:
+    container_name: "cinema-db"
+    image: postgres:13.0-alpine
+    command: postgres -c 'max_connections=500'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - .env.dev
+
+volumes:
+  postgres_data:
