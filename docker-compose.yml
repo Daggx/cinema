@@ -7,6 +7,8 @@ services:
     image: "cinema-image"
     expose:
       - 8000
+    volumes:
+      - .:/app  
     env_file:
       - .env.dev
     ports:

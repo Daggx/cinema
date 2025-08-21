@@ -3,3 +3,4 @@ Dockerfile
 # uv.lock
 .env-dev
 .git
+.venv
