@@ -157,4 +157,4 @@ class AuthorRating(models.Model):
         validators=[MinValueValidator(1), MaxValueValidator(10)],
     )
     def __str__(self):
-        return f"{self.spectator} - {self.film} ({self.note})"
+        return f"{self.spectator} - {self.author} ({self.note})"

@@ -13,5 +13,5 @@ class FilmRatingSerializer(serializers.ModelSerializer):
 class AuthorRatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = AuthorRating
-        fields = ["id", "spectateur", "auteur", "note"]
-        read_only_fields = ["id", "spectateur", "auteur"]
+        fields = ["id", "spectator", "author", "note"]
+        read_only_fields = ["id", "spectator", "author"]
