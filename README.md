@@ -4,7 +4,7 @@ A Django REST API for managing films, authors (directors or writers), spectators
 
 ---
 
-## 🚀 Setup & Installation
+## Setup & Installation
 
 1. **Start the project with Docker Compose**
 
@@ -29,7 +29,7 @@ A Django REST API for managing films, authors (directors or writers), spectators
 
 ---
 
-## 🎥 Populate the Database with Movies & Authors
+## Populate the Database with Movies & Authors
 
 1. **Set your TMDb API key**
 
@@ -42,17 +42,17 @@ A Django REST API for managing films, authors (directors or writers), spectators
    python app/manage.py add_movie {tmdb_movie_id}
    ```
 
-   → This will insert the movie and its director into the database
+   To insert the movie data and its director into the database
 
 3. **Populate with popular movies (first page of TMDb popular list)**
 
    ```bash
    python app/manage.py populate_db
    ```
- → This will insert the first page of the most popular movies from tmdb with their directors
+ TO insert the first page of the most popular movies from tmdb with their directors
 ---
 
-## 📡 API Endpoints
+## API Endpoints
 
 ### Authentication  
 
@@ -140,7 +140,6 @@ r = requests.post(url, json=payload)
 tokens = r.json()
 access = tokens["access"]
 refresh = tokens["refresh"]
-print("ACCESS:", access[:30] + "...") 
 ```
 ---
 
@@ -287,5 +286,4 @@ import requests
 url = "http://localhost:8000/api/refresh/"
 r = requests.post(url, json={"refresh": refresh})
 new_access = r.json()["access"]
-print("NEW ACCESS:", new_access[:30] + "...")
 ```
