@@ -15,6 +15,18 @@ services:
       - 8000:8000
     depends_on:
       - db
+  migrate:
+    image: cinema-image
+    container_name: cinema-migrate
+    env_file:
+      - .env.dev
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    restart: "no"
+    command: >
+      sh -c "python app/manage.py migrate"
     
   db:
     container_name: "cinema-db"
