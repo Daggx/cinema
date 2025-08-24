@@ -9,13 +9,11 @@ WORKDIR /app
 
 COPY pyproject.toml uv.lock* ./
 
-RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen
+RUN uv sync --frozen
 
 ENV PATH="/app/.venv/bin:$PATH"
 
 COPY . .
 
 EXPOSE 8000
-
 CMD ["uv", "run", "python", "app/manage.py", "runserver", "0.0.0.0:8000"]
